@@ -1,0 +1,17 @@
+services:
+  mining-daily-agent:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+      - MINING_AGENT_OFFLINE=true
+      - MINING_AGENT_STRICT_CITATIONS=true
+    command: >
+      sh -c "python -m agent.daily_brief_agent
+      '给我生成一份关于 Pilbara 锂矿的今日简报'
+      --offline
+      --output examples/pilbara_lithium_generated.md
+      --json-output examples/pilbara_lithium_generated.json"
+

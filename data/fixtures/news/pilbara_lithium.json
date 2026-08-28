@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Pilbara Minerals reports stronger spodumene shipment guidance",
+    "url": "https://example.com/mining-news/pilbara-shipment-guidance",
+    "source": "fixture:mining-news",
+    "published_at": "2026-08-27T09:00:00Z",
+    "snippet": "Pilbara Minerals said shipment guidance improved as port availability and mine scheduling normalized.",
+    "text": "Pilbara Minerals reported stronger spodumene shipment guidance after port availability and mine scheduling normalized. Management said demand signals from Asian converters remain mixed, while long-term offtake discussions continue.",
+    "authors": ["Mining Desk"]
+  },
+  {
+    "title": "Western Australia reviews lithium royalty settings amid price volatility",
+    "url": "https://example.com/policy/wa-lithium-royalty-review",
+    "source": "fixture:policy-news",
+    "published_at": "2026-08-26T06:30:00Z",
+    "snippet": "A policy review may affect royalty timing and reporting obligations for lithium miners.",
+    "text": "Western Australia opened a review of lithium royalty settings after two years of price volatility. The consultation focuses on timing, reporting obligations, and support for downstream processing investment.",
+    "authors": ["Policy Desk"]
+  },
+  {
+    "title": "Chinese converters remain cautious on spodumene restocking",
+    "url": "https://example.com/markets/china-converter-restocking",
+    "source": "fixture:market-news",
+    "published_at": "2026-08-25T03:15:00Z",
+    "snippet": "Converter restocking remains selective as battery material margins stay compressed.",
+    "text": "Chinese lithium converters are restocking selectively because battery material margins remain compressed. Traders said high-quality Australian spodumene cargoes still clear more easily than lower-grade supply.",
+    "authors": ["Market Desk"]
+  }
+]
+

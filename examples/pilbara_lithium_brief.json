@@ -1,0 +1,399 @@
+{
+  "topic": "Pilbara lithium",
+  "news": [
+    {
+      "title": "Pilbara Minerals reports stronger spodumene shipment guidance",
+      "url": "https://example.com/mining-news/pilbara-shipment-guidance",
+      "source": "fixture:mining-news",
+      "published_at": "2026-08-27T09:00:00Z",
+      "snippet": "Pilbara Minerals said shipment guidance improved as port availability and mine scheduling normalized.",
+      "score": 0.65,
+      "citation_id": "S1"
+    },
+    {
+      "title": "Western Australia reviews lithium royalty settings amid price volatility",
+      "url": "https://example.com/policy/wa-lithium-royalty-review",
+      "source": "fixture:policy-news",
+      "published_at": "2026-08-26T06:30:00Z",
+      "snippet": "A policy review may affect royalty timing and reporting obligations for lithium miners.",
+      "score": 0.85,
+      "citation_id": "S2"
+    },
+    {
+      "title": "Chinese converters remain cautious on spodumene restocking",
+      "url": "https://example.com/markets/china-converter-restocking",
+      "source": "fixture:market-news",
+      "published_at": "2026-08-25T03:15:00Z",
+      "snippet": "Converter restocking remains selective as battery material margins stay compressed.",
+      "score": 0.65,
+      "citation_id": "S3"
+    }
+  ],
+  "resources": {
+    "pdf_url": "fixture://pilbara-ni-43101",
+    "project": "Pilgangoora Lithium Operation",
+    "status": "ok",
+    "resources": [
+      {
+        "project": "Pilgangoora Lithium Operation",
+        "category": "Indicated",
+        "ore_tonnage_mt": 214.0,
+        "grade": 1.15,
+        "grade_unit": "% Li2O",
+        "contained_metal": 2.46,
+        "contained_metal_unit": "Mt Li2O",
+        "page": 118,
+        "confidence": 0.88,
+        "citation_id": "S4"
+      },
+      {
+        "project": "Pilgangoora Lithium Operation",
+        "category": "Inferred",
+        "ore_tonnage_mt": 96.0,
+        "grade": 1.05,
+        "grade_unit": "% Li2O",
+        "contained_metal": 1.01,
+        "contained_metal_unit": "Mt Li2O",
+        "page": 118,
+        "confidence": 0.82,
+        "citation_id": "S4"
+      }
+    ],
+    "warnings": [
+      "Fixture values are representative for interview demonstration; verify against the latest technical report before investment use."
+    ],
+    "citations": [
+      {
+        "id": "S4",
+        "title": "Pilgangoora technical report resource table",
+        "url": "fixture://pilbara-ni-43101",
+        "source": "fixture:technical-report",
+        "published_at": "2026-08-01T00:00:00Z",
+        "page": 118
+      }
+    ]
+  },
+  "prices": [
+    {
+      "commodity": "lithium",
+      "currency": "USD",
+      "unit": "t LCE",
+      "points": [
+        {
+          "commodity": "lithium",
+          "date": "2026-08-22",
+          "price": 11750,
+          "currency": "USD",
+          "unit": "t LCE",
+          "citation_id": "S5"
+        },
+        {
+          "commodity": "lithium",
+          "date": "2026-08-23",
+          "price": 11680,
+          "currency": "USD",
+          "unit": "t LCE",
+          "citation_id": "S5"
+        },
+        {
+          "commodity": "lithium",
+          "date": "2026-08-24",
+          "price": 11520,
+          "currency": "USD",
+          "unit": "t LCE",
+          "citation_id": "S5"
+        },
+        {
+          "commodity": "lithium",
+          "date": "2026-08-25",
+          "price": 11440,
+          "currency": "USD",
+          "unit": "t LCE",
+          "citation_id": "S5"
+        },
+        {
+          "commodity": "lithium",
+          "date": "2026-08-26",
+          "price": 11380,
+          "currency": "USD",
+          "unit": "t LCE",
+          "citation_id": "S5"
+        },
+        {
+          "commodity": "lithium",
+          "date": "2026-08-27",
+          "price": 11290,
+          "currency": "USD",
+          "unit": "t LCE",
+          "citation_id": "S5"
+        },
+        {
+          "commodity": "lithium",
+          "date": "2026-08-28",
+          "price": 11220,
+          "currency": "USD",
+          "unit": "t LCE",
+          "citation_id": "S5"
+        }
+      ],
+      "change_pct": -4.51,
+      "volatility": 0.0029,
+      "trend": "down",
+      "citations": [
+        {
+          "id": "S5",
+          "title": "Lithium carbonate indicative price series",
+          "url": "https://example.com/prices/lithium-carbonate",
+          "source": "fixture:commodity-price",
+          "published_at": "2026-08-28T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "commodity": "copper",
+      "currency": "USD",
+      "unit": "t",
+      "points": [
+        {
+          "commodity": "copper",
+          "date": "2026-08-22",
+          "price": 9260,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S6"
+        },
+        {
+          "commodity": "copper",
+          "date": "2026-08-23",
+          "price": 9315,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S6"
+        },
+        {
+          "commodity": "copper",
+          "date": "2026-08-24",
+          "price": 9340,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S6"
+        },
+        {
+          "commodity": "copper",
+          "date": "2026-08-25",
+          "price": 9295,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S6"
+        },
+        {
+          "commodity": "copper",
+          "date": "2026-08-26",
+          "price": 9365,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S6"
+        },
+        {
+          "commodity": "copper",
+          "date": "2026-08-27",
+          "price": 9410,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S6"
+        },
+        {
+          "commodity": "copper",
+          "date": "2026-08-28",
+          "price": 9390,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S6"
+        }
+      ],
+      "change_pct": 1.4,
+      "volatility": 0.0044,
+      "trend": "up",
+      "citations": [
+        {
+          "id": "S6",
+          "title": "LME copper indicative settlement series",
+          "url": "https://example.com/prices/lme-copper",
+          "source": "fixture:lme-price",
+          "published_at": "2026-08-28T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "commodity": "nickel",
+      "currency": "USD",
+      "unit": "t",
+      "points": [
+        {
+          "commodity": "nickel",
+          "date": "2026-08-22",
+          "price": 15400,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S7"
+        },
+        {
+          "commodity": "nickel",
+          "date": "2026-08-23",
+          "price": 15310,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S7"
+        },
+        {
+          "commodity": "nickel",
+          "date": "2026-08-24",
+          "price": 15190,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S7"
+        },
+        {
+          "commodity": "nickel",
+          "date": "2026-08-25",
+          "price": 15220,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S7"
+        },
+        {
+          "commodity": "nickel",
+          "date": "2026-08-26",
+          "price": 15080,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S7"
+        },
+        {
+          "commodity": "nickel",
+          "date": "2026-08-27",
+          "price": 14990,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S7"
+        },
+        {
+          "commodity": "nickel",
+          "date": "2026-08-28",
+          "price": 15020,
+          "currency": "USD",
+          "unit": "t",
+          "citation_id": "S7"
+        }
+      ],
+      "change_pct": -2.47,
+      "volatility": 0.0045,
+      "trend": "down",
+      "citations": [
+        {
+          "id": "S7",
+          "title": "LME nickel indicative settlement series",
+          "url": "https://example.com/prices/lme-nickel",
+          "source": "fixture:lme-price",
+          "published_at": "2026-08-28T00:00:00Z"
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "id": "S1",
+      "title": "Pilbara Minerals reports stronger spodumene shipment guidance",
+      "url": "https://example.com/mining-news/pilbara-shipment-guidance",
+      "source": "fixture:mining-news",
+      "published_at": "2026-08-27T09:00:00Z",
+      "page": null
+    },
+    {
+      "id": "S2",
+      "title": "Western Australia reviews lithium royalty settings amid price volatility",
+      "url": "https://example.com/policy/wa-lithium-royalty-review",
+      "source": "fixture:policy-news",
+      "published_at": "2026-08-26T06:30:00Z",
+      "page": null
+    },
+    {
+      "id": "S3",
+      "title": "Chinese converters remain cautious on spodumene restocking",
+      "url": "https://example.com/markets/china-converter-restocking",
+      "source": "fixture:market-news",
+      "published_at": "2026-08-25T03:15:00Z",
+      "page": null
+    },
+    {
+      "id": "S4",
+      "title": "Pilgangoora technical report resource table",
+      "url": "fixture://pilbara-ni-43101",
+      "source": "fixture:technical-report",
+      "published_at": "2026-08-01T00:00:00Z",
+      "page": 118
+    },
+    {
+      "id": "S5",
+      "title": "Lithium carbonate indicative price series",
+      "url": "https://example.com/prices/lithium-carbonate",
+      "source": "fixture:commodity-price",
+      "published_at": "2026-08-28T00:00:00Z"
+    },
+    {
+      "id": "S6",
+      "title": "LME copper indicative settlement series",
+      "url": "https://example.com/prices/lme-copper",
+      "source": "fixture:lme-price",
+      "published_at": "2026-08-28T00:00:00Z"
+    },
+    {
+      "id": "S7",
+      "title": "LME nickel indicative settlement series",
+      "url": "https://example.com/prices/lme-nickel",
+      "source": "fixture:lme-price",
+      "published_at": "2026-08-28T00:00:00Z"
+    }
+  ],
+  "warnings": [],
+  "run_report": {
+    "tools": {
+      "pdf.extract_resources": {
+        "ok": true,
+        "latency_ms": 1.33
+      },
+      "price.get_trend.lithium": {
+        "ok": true,
+        "latency_ms": 1.4
+      },
+      "news.search": {
+        "ok": true,
+        "latency_ms": 1.84
+      },
+      "price.get_trend.copper": {
+        "ok": true,
+        "latency_ms": 2.63
+      },
+      "price.get_trend.nickel": {
+        "ok": true,
+        "latency_ms": 4.2
+      },
+      "news.fetch_article.1": {
+        "ok": true,
+        "latency_ms": 0.85
+      },
+      "news.fetch_article.2": {
+        "ok": true,
+        "latency_ms": 2.25
+      },
+      "news.fetch_article.3": {
+        "ok": true,
+        "latency_ms": 4.21
+      }
+    },
+    "topic": "Pilbara lithium",
+    "total_latency_ms": 928.63,
+    "citation_count": 7,
+    "warning_count": 0
+  }
+}

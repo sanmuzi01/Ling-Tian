@@ -1,0 +1,63 @@
+{
+  "lithium": {
+    "currency": "USD",
+    "unit": "t LCE",
+    "source": {
+      "id": "S5",
+      "title": "Lithium carbonate indicative price series",
+      "url": "https://example.com/prices/lithium-carbonate",
+      "source": "fixture:commodity-price",
+      "published_at": "2026-08-28T00:00:00Z"
+    },
+    "points": [
+      {"date": "2026-08-22", "price": 11750},
+      {"date": "2026-08-23", "price": 11680},
+      {"date": "2026-08-24", "price": 11520},
+      {"date": "2026-08-25", "price": 11440},
+      {"date": "2026-08-26", "price": 11380},
+      {"date": "2026-08-27", "price": 11290},
+      {"date": "2026-08-28", "price": 11220}
+    ]
+  },
+  "copper": {
+    "currency": "USD",
+    "unit": "t",
+    "source": {
+      "id": "S6",
+      "title": "LME copper indicative settlement series",
+      "url": "https://example.com/prices/lme-copper",
+      "source": "fixture:lme-price",
+      "published_at": "2026-08-28T00:00:00Z"
+    },
+    "points": [
+      {"date": "2026-08-22", "price": 9260},
+      {"date": "2026-08-23", "price": 9315},
+      {"date": "2026-08-24", "price": 9340},
+      {"date": "2026-08-25", "price": 9295},
+      {"date": "2026-08-26", "price": 9365},
+      {"date": "2026-08-27", "price": 9410},
+      {"date": "2026-08-28", "price": 9390}
+    ]
+  },
+  "nickel": {
+    "currency": "USD",
+    "unit": "t",
+    "source": {
+      "id": "S7",
+      "title": "LME nickel indicative settlement series",
+      "url": "https://example.com/prices/lme-nickel",
+      "source": "fixture:lme-price",
+      "published_at": "2026-08-28T00:00:00Z"
+    },
+    "points": [
+      {"date": "2026-08-22", "price": 15400},
+      {"date": "2026-08-23", "price": 15310},
+      {"date": "2026-08-24", "price": 15190},
+      {"date": "2026-08-25", "price": 15220},
+      {"date": "2026-08-26", "price": 15080},
+      {"date": "2026-08-27", "price": 14990},
+      {"date": "2026-08-28", "price": 15020}
+    ]
+  }
+}
+

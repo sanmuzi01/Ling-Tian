@@ -1,0 +1,2 @@
+"""Mineral PDF MCP server."""
+

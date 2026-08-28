@@ -1,0 +1,2 @@
+"""Daily brief agent package."""
+

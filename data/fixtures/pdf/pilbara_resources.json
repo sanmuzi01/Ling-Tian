@@ -1,0 +1,45 @@
+{
+  "pdf_url": "fixture://pilbara-ni-43101",
+  "project": "Pilgangoora Lithium Operation",
+  "status": "ok",
+  "resources": [
+    {
+      "project": "Pilgangoora Lithium Operation",
+      "category": "Indicated",
+      "ore_tonnage_mt": 214.0,
+      "grade": 1.15,
+      "grade_unit": "% Li2O",
+      "contained_metal": 2.46,
+      "contained_metal_unit": "Mt Li2O",
+      "page": 118,
+      "confidence": 0.88,
+      "citation_id": "S4"
+    },
+    {
+      "project": "Pilgangoora Lithium Operation",
+      "category": "Inferred",
+      "ore_tonnage_mt": 96.0,
+      "grade": 1.05,
+      "grade_unit": "% Li2O",
+      "contained_metal": 1.01,
+      "contained_metal_unit": "Mt Li2O",
+      "page": 118,
+      "confidence": 0.82,
+      "citation_id": "S4"
+    }
+  ],
+  "warnings": [
+    "Fixture values are representative for interview demonstration; verify against the latest technical report before investment use."
+  ],
+  "citations": [
+    {
+      "id": "S4",
+      "title": "Pilgangoora technical report resource table",
+      "url": "fixture://pilbara-ni-43101",
+      "source": "fixture:technical-report",
+      "published_at": "2026-08-01T00:00:00Z",
+      "page": 118
+    }
+  ]
+}
+
