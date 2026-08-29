@@ -6,12 +6,11 @@ services:
       - .:/app
     environment:
       - PYTHONPATH=/app
-      - MINING_AGENT_OFFLINE=true
+      - MINING_AGENT_OFFLINE=false
       - MINING_AGENT_STRICT_CITATIONS=true
+      - MINING_AGENT_PDF_URL=https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf
     command: >
       sh -c "python -m agent.daily_brief_agent
       '给我生成一份关于 Pilbara 锂矿的今日简报'
-      --offline
       --output examples/pilbara_lithium_generated.md
       --json-output examples/pilbara_lithium_generated.json"
-

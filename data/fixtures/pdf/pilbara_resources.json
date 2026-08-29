@@ -13,7 +13,7 @@
       "contained_metal_unit": "Mt Li2O",
       "page": 118,
       "confidence": 0.88,
-      "citation_id": "S4"
+      "citation_id": "S21"
     },
     {
       "project": "Pilgangoora Lithium Operation",
@@ -25,7 +25,7 @@
       "contained_metal_unit": "Mt Li2O",
       "page": 118,
       "confidence": 0.82,
-      "citation_id": "S4"
+      "citation_id": "S21"
     }
   ],
   "warnings": [
@@ -33,7 +33,7 @@
   ],
   "citations": [
     {
-      "id": "S4",
+      "id": "S21",
       "title": "Pilgangoora technical report resource table",
       "url": "fixture://pilbara-ni-43101",
       "source": "fixture:technical-report",
@@ -42,4 +42,3 @@
     }
   ]
 }
-

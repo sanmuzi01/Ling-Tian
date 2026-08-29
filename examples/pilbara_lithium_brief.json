@@ -2,74 +2,180 @@
   "topic": "Pilbara lithium",
   "news": [
     {
-      "title": "Pilbara Minerals reports stronger spodumene shipment guidance",
-      "url": "https://example.com/mining-news/pilbara-shipment-guidance",
-      "source": "fixture:mining-news",
-      "published_at": "2026-08-27T09:00:00Z",
-      "snippet": "Pilbara Minerals said shipment guidance improved as port availability and mine scheduling normalized.",
-      "score": 0.65,
-      "citation_id": "S1"
+      "title": "Pilbara Minerals lifts Pilgangoora lithium resource",
+      "url": "https://www.mining.com/pilbara-minerals-lifts-pilgangoora-lithium-resource/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilbara Minerals lifts Pilgangoora lithium resource",
+      "score": 0.99,
+      "citation_id": "S1",
+      "fetched_at": "2026-08-29T01:04:38.086730Z"
     },
     {
-      "title": "Western Australia reviews lithium royalty settings amid price volatility",
-      "url": "https://example.com/policy/wa-lithium-royalty-review",
-      "source": "fixture:policy-news",
-      "published_at": "2026-08-26T06:30:00Z",
-      "snippet": "A policy review may affect royalty timing and reporting obligations for lithium miners.",
-      "score": 0.85,
-      "citation_id": "S2"
+      "title": "Pilbara Minerals’ annual profit falls on weaker lithium prices",
+      "url": "https://www.mining.com/web/pilbara-minerals-posts-86-fall-in-annual-profit/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilbara Minerals’ annual profit falls on weaker lithium prices",
+      "score": 0.99,
+      "citation_id": "S2",
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
     },
     {
-      "title": "Chinese converters remain cautious on spodumene restocking",
-      "url": "https://example.com/markets/china-converter-restocking",
-      "source": "fixture:market-news",
-      "published_at": "2026-08-25T03:15:00Z",
-      "snippet": "Converter restocking remains selective as battery material margins stay compressed.",
-      "score": 0.65,
-      "citation_id": "S3"
+      "title": "Pilbara Minerals says lithium prices may have bottomed",
+      "url": "https://www.mining.com/web/pilbara-minerals-signals-higher-production-for-fiscal-2025/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilbara Minerals says lithium prices may have bottomed",
+      "score": 0.99,
+      "citation_id": "S3",
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
+    },
+    {
+      "title": "Pilbara Minerals eyes $800 million road to double lithium output",
+      "url": "https://www.mining.com/web/pilbara-minerals-set-to-expand-annual-production-at-pilgangoora/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilbara Minerals eyes $800 million road to double lithium output",
+      "score": 0.99,
+      "citation_id": "S4",
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
+    },
+    {
+      "title": "Lithium miner PLS Group bullish on price outlook, eyes expansion",
+      "url": "https://www.miningweekly.com/article/lithium-miner-pls-group-bullish-on-price-outlook-eyes-expansion-2026-08-24/searchString:Pilgangoora",
+      "source": "live:html:miningweekly.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Lithium miner PLS Group bullish on price outlook, eyes expansion",
+      "score": 0.99,
+      "citation_id": "S5",
+      "fetched_at": "2026-08-29T01:04:42.899656Z"
+    },
+    {
+      "title": "Australian lithium miner PLS says energy security concerns driving demand growth",
+      "url": "https://www.miningweekly.com/article/australian-lithium-miner-pls-says-energy-security-concerns-driving-demand-growth-2026-04-24/searchString:Pilgangoora",
+      "source": "live:html:miningweekly.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Australian lithium miner PLS says energy security concerns driving demand growth",
+      "score": 0.99,
+      "citation_id": "S6",
+      "fetched_at": "2026-08-29T01:04:42.899656Z"
+    },
+    {
+      "title": "Pilgangoora Lithium Project scoping study positive results – ALTURA MINING LIMITED",
+      "url": "https://www.mining.com/web/pilgangoora-lithium-project-scoping-study-positive-results-altura-mining-limited/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilgangoora Lithium Project scoping study positive results – ALTURA MINING LIMITED",
+      "score": 0.93,
+      "citation_id": "S7",
+      "fetched_at": "2026-08-29T01:04:38.086730Z"
+    },
+    {
+      "title": "Pilbara Minerals sees lithium demand rallying on China mine restart",
+      "url": "https://www.mining.com/web/pilbara-minerals-sees-lithium-demand-rallying-on-china-mine-restart/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilbara Minerals sees lithium demand rallying on China mine restart",
+      "score": 0.93,
+      "citation_id": "S8",
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
+    },
+    {
+      "title": "Pilbara Minerals, Ganfeng agree to study for lithium chemical plant",
+      "url": "https://www.mining.com/web/pilbara-minerals-ganfeng-agree-to-study-for-lithium-chemical-plant/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilbara Minerals, Ganfeng agree to study for lithium chemical plant",
+      "score": 0.93,
+      "citation_id": "S9",
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
+    },
+    {
+      "title": "Pilbara Minerals cuts FY25 output forecast; flags Pilgangoora optimization",
+      "url": "https://www.mining.com/web/pilbara-minerals-cuts-output-forecast-on-ngungaju-plant-suspension-plans/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "snippet": "Pilbara Minerals cuts FY25 output forecast; flags Pilgangoora optimization",
+      "score": 0.73,
+      "citation_id": "S10",
+      "fetched_at": "2026-08-29T01:04:38.086730Z"
     }
   ],
   "resources": {
-    "pdf_url": "fixture://pilbara-ni-43101",
+    "pdf_url": "https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf",
+    "status": "partial",
     "project": "Pilgangoora Lithium Operation",
-    "status": "ok",
     "resources": [
       {
         "project": "Pilgangoora Lithium Operation",
         "category": "Indicated",
-        "ore_tonnage_mt": 214.0,
-        "grade": 1.15,
-        "grade_unit": "% Li2O",
-        "contained_metal": 2.46,
-        "contained_metal_unit": "Mt Li2O",
-        "page": 118,
-        "confidence": 0.88,
-        "citation_id": "S4"
+        "ore_tonnage_mt": 346.0,
+        "grade": 1.29,
+        "grade_unit": "% Li2O / reported grade",
+        "contained_metal": 4.463,
+        "contained_metal_unit": "Mt contained grade units",
+        "page": 34,
+        "confidence": 0.72,
+        "citation_id": "S21"
       },
       {
         "project": "Pilgangoora Lithium Operation",
         "category": "Inferred",
-        "ore_tonnage_mt": 96.0,
-        "grade": 1.05,
-        "grade_unit": "% Li2O",
-        "contained_metal": 1.01,
-        "contained_metal_unit": "Mt Li2O",
-        "page": 118,
-        "confidence": 0.82,
-        "citation_id": "S4"
+        "ore_tonnage_mt": 70.0,
+        "grade": 1.25,
+        "grade_unit": "% Li2O / reported grade",
+        "contained_metal": 0.875,
+        "contained_metal_unit": "Mt contained grade units",
+        "page": 34,
+        "confidence": 0.72,
+        "citation_id": "S21"
+      },
+      {
+        "project": "Pilgangoora Lithium Operation",
+        "category": "Indicated",
+        "ore_tonnage_mt": 38.63,
+        "grade": 1.23,
+        "grade_unit": "% Li2O / reported grade",
+        "contained_metal": 0.475,
+        "contained_metal_unit": "Mt contained grade units",
+        "page": 35,
+        "confidence": 0.72,
+        "citation_id": "S21"
+      },
+      {
+        "project": "Pilgangoora Lithium Operation",
+        "category": "Inferred",
+        "ore_tonnage_mt": 3.59,
+        "grade": 1.1,
+        "grade_unit": "% Li2O / reported grade",
+        "contained_metal": 0.039,
+        "contained_metal_unit": "Mt contained grade units",
+        "page": 35,
+        "confidence": 0.72,
+        "citation_id": "S21"
       }
     ],
-    "warnings": [
-      "Fixture values are representative for interview demonstration; verify against the latest technical report before investment use."
-    ],
+    "warnings": [],
     "citations": [
       {
-        "id": "S4",
-        "title": "Pilgangoora technical report resource table",
-        "url": "fixture://pilbara-ni-43101",
-        "source": "fixture:technical-report",
-        "published_at": "2026-08-01T00:00:00Z",
-        "page": 118
+        "id": "S21",
+        "title": "Live technical report PDF resource extraction",
+        "url": "https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf",
+        "source": "live:pdf",
+        "published_at": "2026-08-23T00:00:00Z",
+        "page": 34,
+        "fetched_at": "2026-08-29T01:04:36.884040Z"
+      }
+    ],
+    "trace": [
+      {
+        "tool": "mineral-pdf-mcp.extract_resources",
+        "source": "live:pdf",
+        "url": "https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf",
+        "published_at": "2026-08-23T00:00:00Z",
+        "fetched_at": "2026-08-29T01:04:36.884040Z",
+        "status": "ok"
       }
     ]
   },
@@ -77,323 +183,578 @@
     {
       "commodity": "lithium",
       "currency": "USD",
-      "unit": "t LCE",
+      "unit": "contract/share",
       "points": [
         {
           "commodity": "lithium",
-          "date": "2026-08-22",
-          "price": 11750,
+          "date": "2026-08-20",
+          "price": 74.58,
           "currency": "USD",
-          "unit": "t LCE",
-          "citation_id": "S5"
+          "unit": "contract/share",
+          "citation_id": "S31"
         },
         {
           "commodity": "lithium",
-          "date": "2026-08-23",
-          "price": 11680,
+          "date": "2026-08-21",
+          "price": 76.61,
           "currency": "USD",
-          "unit": "t LCE",
-          "citation_id": "S5"
+          "unit": "contract/share",
+          "citation_id": "S31"
         },
         {
           "commodity": "lithium",
           "date": "2026-08-24",
-          "price": 11520,
+          "price": 77.03,
           "currency": "USD",
-          "unit": "t LCE",
-          "citation_id": "S5"
+          "unit": "contract/share",
+          "citation_id": "S31"
         },
         {
           "commodity": "lithium",
           "date": "2026-08-25",
-          "price": 11440,
+          "price": 76.59,
           "currency": "USD",
-          "unit": "t LCE",
-          "citation_id": "S5"
+          "unit": "contract/share",
+          "citation_id": "S31"
         },
         {
           "commodity": "lithium",
           "date": "2026-08-26",
-          "price": 11380,
+          "price": 75.92,
           "currency": "USD",
-          "unit": "t LCE",
-          "citation_id": "S5"
+          "unit": "contract/share",
+          "citation_id": "S31"
         },
         {
           "commodity": "lithium",
           "date": "2026-08-27",
-          "price": 11290,
+          "price": 77.13,
           "currency": "USD",
-          "unit": "t LCE",
-          "citation_id": "S5"
+          "unit": "contract/share",
+          "citation_id": "S31"
         },
         {
           "commodity": "lithium",
           "date": "2026-08-28",
-          "price": 11220,
+          "price": 76.07,
           "currency": "USD",
-          "unit": "t LCE",
-          "citation_id": "S5"
+          "unit": "contract/share",
+          "citation_id": "S31"
         }
       ],
-      "change_pct": -4.51,
-      "volatility": 0.0029,
-      "trend": "down",
+      "change_pct": 2.0,
+      "volatility": 0.0144,
+      "trend": "up",
       "citations": [
         {
-          "id": "S5",
-          "title": "Lithium carbonate indicative price series",
-          "url": "https://example.com/prices/lithium-carbonate",
-          "source": "fixture:commodity-price",
-          "published_at": "2026-08-28T00:00:00Z"
+          "id": "S31",
+          "title": "Global X Lithium & Battery Tech ETF proxy for lithium chain",
+          "url": "https://query1.finance.yahoo.com/v8/finance/chart/LIT?range=7d&interval=1d",
+          "source": "live:yahoo-chart",
+          "published_at": "2026-08-29T01:04:36.801405+00:00",
+          "fetched_at": "2026-08-29T01:04:36.801405Z"
+        }
+      ],
+      "trace": [
+        {
+          "tool": "lme-price-mcp.get_trend",
+          "source": "live:yahoo-chart",
+          "url": "https://query1.finance.yahoo.com/v8/finance/chart/LIT?range=7d&interval=1d",
+          "published_at": "2026-08-29T01:04:36.801405+00:00",
+          "fetched_at": "2026-08-29T01:04:36.801405Z",
+          "status": "ok"
         }
       ]
     },
     {
       "commodity": "copper",
       "currency": "USD",
-      "unit": "t",
+      "unit": "contract/share",
       "points": [
         {
           "commodity": "copper",
-          "date": "2026-08-22",
-          "price": 9260,
+          "date": "2026-08-21",
+          "price": 6.5795,
           "currency": "USD",
-          "unit": "t",
-          "citation_id": "S6"
-        },
-        {
-          "commodity": "copper",
-          "date": "2026-08-23",
-          "price": 9315,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S6"
+          "unit": "contract/share",
+          "citation_id": "S32"
         },
         {
           "commodity": "copper",
           "date": "2026-08-24",
-          "price": 9340,
+          "price": 6.599,
           "currency": "USD",
-          "unit": "t",
-          "citation_id": "S6"
+          "unit": "contract/share",
+          "citation_id": "S32"
         },
         {
           "commodity": "copper",
           "date": "2026-08-25",
-          "price": 9295,
+          "price": 6.7095,
           "currency": "USD",
-          "unit": "t",
-          "citation_id": "S6"
+          "unit": "contract/share",
+          "citation_id": "S32"
         },
         {
           "commodity": "copper",
           "date": "2026-08-26",
-          "price": 9365,
+          "price": 6.5945,
           "currency": "USD",
-          "unit": "t",
-          "citation_id": "S6"
+          "unit": "contract/share",
+          "citation_id": "S32"
         },
         {
           "commodity": "copper",
           "date": "2026-08-27",
-          "price": 9410,
+          "price": 6.587,
           "currency": "USD",
-          "unit": "t",
-          "citation_id": "S6"
+          "unit": "contract/share",
+          "citation_id": "S32"
         },
         {
           "commodity": "copper",
           "date": "2026-08-28",
-          "price": 9390,
+          "price": 6.64,
           "currency": "USD",
-          "unit": "t",
-          "citation_id": "S6"
+          "unit": "contract/share",
+          "citation_id": "S32"
         }
       ],
-      "change_pct": 1.4,
-      "volatility": 0.0044,
-      "trend": "up",
+      "change_pct": 0.92,
+      "volatility": 0.0112,
+      "trend": "flat",
       "citations": [
         {
-          "id": "S6",
-          "title": "LME copper indicative settlement series",
-          "url": "https://example.com/prices/lme-copper",
-          "source": "fixture:lme-price",
-          "published_at": "2026-08-28T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "commodity": "nickel",
-      "currency": "USD",
-      "unit": "t",
-      "points": [
-        {
-          "commodity": "nickel",
-          "date": "2026-08-22",
-          "price": 15400,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S7"
-        },
-        {
-          "commodity": "nickel",
-          "date": "2026-08-23",
-          "price": 15310,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S7"
-        },
-        {
-          "commodity": "nickel",
-          "date": "2026-08-24",
-          "price": 15190,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S7"
-        },
-        {
-          "commodity": "nickel",
-          "date": "2026-08-25",
-          "price": 15220,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S7"
-        },
-        {
-          "commodity": "nickel",
-          "date": "2026-08-26",
-          "price": 15080,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S7"
-        },
-        {
-          "commodity": "nickel",
-          "date": "2026-08-27",
-          "price": 14990,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S7"
-        },
-        {
-          "commodity": "nickel",
-          "date": "2026-08-28",
-          "price": 15020,
-          "currency": "USD",
-          "unit": "t",
-          "citation_id": "S7"
+          "id": "S32",
+          "title": "COMEX copper futures continuous contract",
+          "url": "https://query1.finance.yahoo.com/v8/finance/chart/HG=F?range=7d&interval=1d",
+          "source": "live:yahoo-chart",
+          "published_at": "2026-08-29T01:04:37.460794+00:00",
+          "fetched_at": "2026-08-29T01:04:37.460794Z"
         }
       ],
-      "change_pct": -2.47,
-      "volatility": 0.0045,
-      "trend": "down",
-      "citations": [
+      "trace": [
         {
-          "id": "S7",
-          "title": "LME nickel indicative settlement series",
-          "url": "https://example.com/prices/lme-nickel",
-          "source": "fixture:lme-price",
-          "published_at": "2026-08-28T00:00:00Z"
+          "tool": "lme-price-mcp.get_trend",
+          "source": "live:yahoo-chart",
+          "url": "https://query1.finance.yahoo.com/v8/finance/chart/HG=F?range=7d&interval=1d",
+          "published_at": "2026-08-29T01:04:37.460794+00:00",
+          "fetched_at": "2026-08-29T01:04:37.460794Z",
+          "status": "ok"
         }
       ]
     }
   ],
+  "risks": {
+    "topic": "Pilbara lithium",
+    "risk_score": 0.51,
+    "risk_level": "medium",
+    "risks": [
+      {
+        "category": "市场价格",
+        "level": "medium",
+        "score": 0.45,
+        "summary": "锂价代理指标短期波动会影响精矿销售价格、库存重估和项目估值敏感性。",
+        "citation_id": "S31"
+      },
+      {
+        "category": "资源量可信度",
+        "level": "high",
+        "score": 0.74,
+        "summary": "PDF 表格抽取存在低置信度字段时，应在投资或面试演示前人工复核原报告页码。",
+        "citation_id": "S21"
+      },
+      {
+        "category": "运营执行",
+        "level": "medium",
+        "score": 0.55,
+        "summary": "扩产、产量指引和发运节奏变化会影响单位成本摊薄和现金流兑现时间。",
+        "citation_id": "S2"
+      },
+      {
+        "category": "政策许可",
+        "level": "low",
+        "score": 0.3,
+        "summary": "矿权许可、royalty、本地加工或出口规则变化可能改变项目现金流时点。",
+        "citation_id": "S3"
+      }
+    ],
+    "citations": [
+      {
+        "id": "S1",
+        "title": "Pilbara Minerals lifts Pilgangoora lithium resource",
+        "url": "https://www.mining.com/pilbara-minerals-lifts-pilgangoora-lithium-resource/",
+        "source": "live:html:mining.com",
+        "published_at": "1970-01-01T00:00:00Z",
+        "fetched_at": "2026-08-29T01:04:38.086730Z"
+      },
+      {
+        "id": "S2",
+        "title": "Pilbara Minerals’ annual profit falls on weaker lithium prices",
+        "url": "https://www.mining.com/web/pilbara-minerals-posts-86-fall-in-annual-profit/",
+        "source": "live:html:mining.com",
+        "published_at": "1970-01-01T00:00:00Z",
+        "fetched_at": "2026-08-29T01:04:41.366641Z"
+      },
+      {
+        "id": "S3",
+        "title": "Pilbara Minerals says lithium prices may have bottomed",
+        "url": "https://www.mining.com/web/pilbara-minerals-signals-higher-production-for-fiscal-2025/",
+        "source": "live:html:mining.com",
+        "published_at": "1970-01-01T00:00:00Z",
+        "fetched_at": "2026-08-29T01:04:41.366641Z"
+      },
+      {
+        "id": "S21",
+        "title": "Live technical report PDF resource extraction",
+        "url": "https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf",
+        "source": "live:pdf",
+        "published_at": "2026-08-23T00:00:00Z",
+        "page": 34,
+        "fetched_at": "2026-08-29T01:04:36.884040Z"
+      },
+      {
+        "id": "S31",
+        "title": "Global X Lithium & Battery Tech ETF proxy for lithium chain",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/LIT?range=7d&interval=1d",
+        "source": "live:yahoo-chart",
+        "published_at": "2026-08-29T01:04:36.801405+00:00",
+        "fetched_at": "2026-08-29T01:04:36.801405Z"
+      },
+      {
+        "id": "S32",
+        "title": "COMEX copper futures continuous contract",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/HG=F?range=7d&interval=1d",
+        "source": "live:yahoo-chart",
+        "published_at": "2026-08-29T01:04:37.460794+00:00",
+        "fetched_at": "2026-08-29T01:04:37.460794Z"
+      }
+    ],
+    "trace": [
+      {
+        "tool": "mining-risk-mcp.assess_risks",
+        "source": "agent:derived-risk-model",
+        "url": "mcp://mining-risk-mcp/assess_risks",
+        "title": "Pilbara lithium risk assessment",
+        "published_at": "2026-08-29T01:10:59.855289Z",
+        "fetched_at": "2026-08-29T01:10:59.855289Z",
+        "status": "ok"
+      }
+    ]
+  },
   "citations": [
     {
       "id": "S1",
-      "title": "Pilbara Minerals reports stronger spodumene shipment guidance",
-      "url": "https://example.com/mining-news/pilbara-shipment-guidance",
-      "source": "fixture:mining-news",
-      "published_at": "2026-08-27T09:00:00Z",
-      "page": null
+      "title": "Pilbara Minerals lifts Pilgangoora lithium resource",
+      "url": "https://www.mining.com/pilbara-minerals-lifts-pilgangoora-lithium-resource/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "page": null,
+      "fetched_at": "2026-08-29T01:04:38.086730Z"
     },
     {
       "id": "S2",
-      "title": "Western Australia reviews lithium royalty settings amid price volatility",
-      "url": "https://example.com/policy/wa-lithium-royalty-review",
-      "source": "fixture:policy-news",
-      "published_at": "2026-08-26T06:30:00Z",
-      "page": null
+      "title": "Pilbara Minerals’ annual profit falls on weaker lithium prices",
+      "url": "https://www.mining.com/web/pilbara-minerals-posts-86-fall-in-annual-profit/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "page": null,
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
+    },
+    {
+      "id": "S21",
+      "title": "Live technical report PDF resource extraction",
+      "url": "https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf",
+      "source": "live:pdf",
+      "published_at": "2026-08-23T00:00:00Z",
+      "page": 34,
+      "fetched_at": "2026-08-29T01:04:36.884040Z"
     },
     {
       "id": "S3",
-      "title": "Chinese converters remain cautious on spodumene restocking",
-      "url": "https://example.com/markets/china-converter-restocking",
-      "source": "fixture:market-news",
-      "published_at": "2026-08-25T03:15:00Z",
-      "page": null
+      "title": "Pilbara Minerals says lithium prices may have bottomed",
+      "url": "https://www.mining.com/web/pilbara-minerals-signals-higher-production-for-fiscal-2025/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "page": null,
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
+    },
+    {
+      "id": "S31",
+      "title": "Global X Lithium & Battery Tech ETF proxy for lithium chain",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/LIT?range=7d&interval=1d",
+      "source": "live:yahoo-chart",
+      "published_at": "2026-08-29T01:04:36.801405+00:00",
+      "fetched_at": "2026-08-29T01:04:36.801405Z"
+    },
+    {
+      "id": "S32",
+      "title": "COMEX copper futures continuous contract",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/HG=F?range=7d&interval=1d",
+      "source": "live:yahoo-chart",
+      "published_at": "2026-08-29T01:04:37.460794+00:00",
+      "fetched_at": "2026-08-29T01:04:37.460794Z"
     },
     {
       "id": "S4",
-      "title": "Pilgangoora technical report resource table",
-      "url": "fixture://pilbara-ni-43101",
-      "source": "fixture:technical-report",
-      "published_at": "2026-08-01T00:00:00Z",
-      "page": 118
+      "title": "Pilbara Minerals eyes $800 million road to double lithium output",
+      "url": "https://www.mining.com/web/pilbara-minerals-set-to-expand-annual-production-at-pilgangoora/",
+      "source": "live:html:mining.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "page": null,
+      "fetched_at": "2026-08-29T01:04:41.366641Z"
     },
     {
       "id": "S5",
-      "title": "Lithium carbonate indicative price series",
-      "url": "https://example.com/prices/lithium-carbonate",
-      "source": "fixture:commodity-price",
-      "published_at": "2026-08-28T00:00:00Z"
-    },
-    {
-      "id": "S6",
-      "title": "LME copper indicative settlement series",
-      "url": "https://example.com/prices/lme-copper",
-      "source": "fixture:lme-price",
-      "published_at": "2026-08-28T00:00:00Z"
-    },
-    {
-      "id": "S7",
-      "title": "LME nickel indicative settlement series",
-      "url": "https://example.com/prices/lme-nickel",
-      "source": "fixture:lme-price",
-      "published_at": "2026-08-28T00:00:00Z"
+      "title": "Lithium miner PLS Group bullish on price outlook, eyes expansion",
+      "url": "https://www.miningweekly.com/article/lithium-miner-pls-group-bullish-on-price-outlook-eyes-expansion-2026-08-24/searchString:Pilgangoora",
+      "source": "live:html:miningweekly.com",
+      "published_at": "1970-01-01T00:00:00Z",
+      "page": null,
+      "fetched_at": "2026-08-29T01:04:42.899656Z"
     }
   ],
-  "warnings": [],
+  "warnings": [
+    "Resource extraction status is partial.",
+    "Low confidence resource record: Pilgangoora Lithium Operation Indicated",
+    "Low confidence resource record: Pilgangoora Lithium Operation Inferred",
+    "Low confidence resource record: Pilgangoora Lithium Operation Indicated",
+    "Low confidence resource record: Pilgangoora Lithium Operation Inferred"
+  ],
   "run_report": {
     "tools": {
-      "pdf.extract_resources": {
+      "news.search": {
         "ok": true,
-        "latency_ms": 1.33
+        "latency_ms": 1.36
       },
       "price.get_trend.lithium": {
         "ok": true,
-        "latency_ms": 1.4
+        "latency_ms": 1.37
       },
-      "news.search": {
+      "pdf.extract_resources": {
         "ok": true,
-        "latency_ms": 1.84
+        "latency_ms": 1.53
       },
       "price.get_trend.copper": {
         "ok": true,
-        "latency_ms": 2.63
-      },
-      "price.get_trend.nickel": {
-        "ok": true,
-        "latency_ms": 4.2
+        "latency_ms": 2.28
       },
       "news.fetch_article.1": {
         "ok": true,
-        "latency_ms": 0.85
+        "latency_ms": 1.44
       },
       "news.fetch_article.2": {
         "ok": true,
-        "latency_ms": 2.25
+        "latency_ms": 2.19
       },
       "news.fetch_article.3": {
         "ok": true,
-        "latency_ms": 4.21
+        "latency_ms": 2.89
+      },
+      "news.fetch_article.4": {
+        "ok": true,
+        "latency_ms": 3.46
+      },
+      "news.fetch_article.5": {
+        "ok": true,
+        "latency_ms": 4.27
+      },
+      "risk.assess_risks": {
+        "ok": true,
+        "latency_ms": 1.1
       }
     },
     "topic": "Pilbara lithium",
-    "total_latency_ms": 928.63,
-    "citation_count": 7,
-    "warning_count": 0
+    "mode": "live-first",
+    "plan": {
+      "news_query": "Pilbara lithium mining policy price",
+      "news_days": 7,
+      "pdf_url": "https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf",
+      "commodities": [
+        "lithium",
+        "copper"
+      ]
+    },
+    "mcp_contract": {
+      "agent_client": "agent.daily_brief_agent",
+      "servers": [
+        {
+          "name": "mining-news-mcp",
+          "module": "servers.mining_news_mcp.server",
+          "tools": [
+            "search(query, days)",
+            "fetch_article(url)"
+          ]
+        },
+        {
+          "name": "mineral-pdf-mcp",
+          "module": "servers.mineral_pdf_mcp.server",
+          "tools": [
+            "extract_resources(pdf_url)"
+          ]
+        },
+        {
+          "name": "lme-price-mcp",
+          "module": "servers.lme_price_mcp.server",
+          "tools": [
+            "get_price(commodity, date)",
+            "get_trend(commodity, days)"
+          ]
+        },
+        {
+          "name": "mining-risk-mcp",
+          "module": "servers.mining_risk_mcp.server",
+          "tools": [
+            "assess_risks(topic, news, resources, prices)"
+          ]
+        }
+      ]
+    },
+    "total_latency_ms": 1205.65,
+    "citation_count": 8,
+    "warning_count": 5,
+    "source_breakdown": {
+      "live": 8,
+      "news": 5,
+      "pdf": 1,
+      "price": 2
+    },
+    "crawl_trace": [
+      {
+        "tool": "lme-price-mcp.get_trend",
+        "source": "live:yahoo-chart",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/LIT?range=7d&interval=1d",
+        "published_at": "2026-08-29T01:04:36.801405+00:00",
+        "fetched_at": "2026-08-29T01:04:36.801405Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mineral-pdf-mcp.extract_resources",
+        "source": "live:pdf",
+        "url": "https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf",
+        "published_at": "2026-08-23T00:00:00Z",
+        "fetched_at": "2026-08-29T01:04:36.884040Z",
+        "status": "ok"
+      },
+      {
+        "tool": "lme-price-mcp.get_trend",
+        "source": "live:yahoo-chart",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/HG=F?range=7d&interval=1d",
+        "published_at": "2026-08-29T01:04:37.460794+00:00",
+        "fetched_at": "2026-08-29T01:04:37.460794Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.search",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/pilbara-minerals-lifts-pilgangoora-lithium-resource/",
+        "title": "Pilbara Minerals lifts Pilgangoora lithium resource",
+        "published_at": "2021-09-07T18:53:26+00:00",
+        "fetched_at": "2026-08-29T01:04:38.086730Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.search",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/web/pilbara-minerals-posts-86-fall-in-annual-profit/",
+        "title": "Pilbara Minerals’ annual profit falls on weaker lithium prices",
+        "published_at": "2024-08-25T23:02:12+00:00",
+        "fetched_at": "2026-08-29T01:04:41.366641Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.search",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/web/pilbara-minerals-signals-higher-production-for-fiscal-2025/",
+        "title": "Pilbara Minerals says lithium prices may have bottomed",
+        "published_at": "2024-07-23T22:39:40+00:00",
+        "fetched_at": "2026-08-29T01:04:41.366641Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.search",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/web/pilbara-minerals-set-to-expand-annual-production-at-pilgangoora/",
+        "title": "Pilbara Minerals eyes $800 million road to double lithium output",
+        "published_at": "2024-06-21T00:28:12+00:00",
+        "fetched_at": "2026-08-29T01:04:41.366641Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.search",
+        "source": "live:html:miningweekly.com",
+        "url": "https://www.miningweekly.com/article/lithium-miner-pls-group-bullish-on-price-outlook-eyes-expansion-2026-08-24/searchString:Pilgangoora",
+        "title": "Lithium miner PLS Group bullish on price outlook, eyes expansion",
+        "published_at": "2026-08-24T09:12:00+02:00",
+        "fetched_at": "2026-08-29T01:04:42.899656Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.fetch_article",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/pilbara-minerals-lifts-pilgangoora-lithium-resource/",
+        "title": "Pilbara Minerals lifts Pilgangoora lithium resource - MINING.COM",
+        "published_at": "2021-09-07T18:53:26+00:00",
+        "fetched_at": "2026-08-29T01:06:02.843833Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.fetch_article",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/web/pilbara-minerals-posts-86-fall-in-annual-profit/",
+        "title": "Pilbara Minerals' annual profit falls on weaker lithium prices - MINING.COM",
+        "published_at": "2024-08-25T23:02:12+00:00",
+        "fetched_at": "2026-08-29T01:06:04.096620Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.fetch_article",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/web/pilbara-minerals-signals-higher-production-for-fiscal-2025/",
+        "title": "Pilbara Minerals says lithium prices may have bottomed - MINING.COM",
+        "published_at": "2024-07-23T22:39:40+00:00",
+        "fetched_at": "2026-08-29T01:06:05.269368Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.fetch_article",
+        "source": "live:html:mining.com",
+        "url": "https://www.mining.com/web/pilbara-minerals-set-to-expand-annual-production-at-pilgangoora/",
+        "title": "Pilbara Minerals eyes $800 million road to double lithium output - MINING.COM",
+        "published_at": "2024-06-21T00:28:12+00:00",
+        "fetched_at": "2026-08-29T01:06:43.934837Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-news-mcp.fetch_article",
+        "source": "live:html:miningweekly.com",
+        "url": "https://www.miningweekly.com/article/lithium-miner-pls-group-bullish-on-price-outlook-eyes-expansion-2026-08-24/searchString:Pilgangoora",
+        "title": "Lithium miner PLS Group bullish on price outlook, eyes expansion",
+        "published_at": "2026-08-24T09:12:00+02:00",
+        "fetched_at": "2026-08-29T01:06:45.163798Z",
+        "status": "ok"
+      },
+      {
+        "tool": "mining-risk-mcp.assess_risks",
+        "source": "agent:derived-risk-model",
+        "url": "mcp://mining-risk-mcp/assess_risks",
+        "title": "Pilbara lithium risk assessment",
+        "published_at": "2026-08-29T01:10:59.855289Z",
+        "fetched_at": "2026-08-29T01:10:59.855289Z",
+        "status": "ok"
+      }
+    ]
+  },
+  "evidence_summary": {
+    "news_count": 10,
+    "resource_count": 4,
+    "price_series_count": 2,
+    "live_source_count": 8,
+    "source_breakdown": {
+      "live": 8,
+      "news": 5,
+      "pdf": 1,
+      "price": 2
+    }
   }
 }

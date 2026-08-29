@@ -10,6 +10,7 @@ from typing import Any
 from agent.composer import compose_markdown
 from agent.planner import build_plan, parse_intent
 from agent.verifier import unique_citations, verify_evidence
+from shared.config import load_settings
 from shared.mcp_client import StdioMCPClient
 from shared.schemas import BriefResult
 
@@ -18,6 +19,7 @@ SERVER_MODULES = {
     "news": "servers.mining_news_mcp.server",
     "pdf": "servers.mineral_pdf_mcp.server",
     "price": "servers.lme_price_mcp.server",
+    "risk": "servers.mining_risk_mcp.server",
 }
 
 
@@ -39,14 +41,51 @@ async def _timed(label: str, coro: Any, report: dict[str, Any]) -> Any:
 async def run_daily_brief(user_query: str) -> BriefResult:
     started = time.perf_counter()
     intent = parse_intent(user_query)
+    settings = load_settings()
     plan = build_plan(intent)
-    report: dict[str, Any] = {"tools": {}, "topic": intent.topic}
+    report: dict[str, Any] = {
+        "tools": {},
+        "topic": intent.topic,
+        "mode": "offline-fixture" if settings.offline else "live-first",
+        "plan": {
+            "news_query": plan.news_query,
+            "news_days": plan.news_days,
+            "pdf_url": plan.pdf_url,
+            "commodities": plan.commodities,
+        },
+        "mcp_contract": {
+            "agent_client": "agent.daily_brief_agent",
+            "servers": [
+                {
+                    "name": "mining-news-mcp",
+                    "module": SERVER_MODULES["news"],
+                    "tools": ["search(query, days)", "fetch_article(url)"],
+                },
+                {
+                    "name": "mineral-pdf-mcp",
+                    "module": SERVER_MODULES["pdf"],
+                    "tools": ["extract_resources(pdf_url)"],
+                },
+                {
+                    "name": "lme-price-mcp",
+                    "module": SERVER_MODULES["price"],
+                    "tools": ["get_price(commodity, date)", "get_trend(commodity, days)"],
+                },
+                {
+                    "name": "mining-risk-mcp",
+                    "module": SERVER_MODULES["risk"],
+                    "tools": ["assess_risks(topic, news, resources, prices)"],
+                },
+            ],
+        },
+    }
     tool_errors: list[str] = []
+    server_env = {"MINING_AGENT_OFFLINE": "true" if settings.offline else "false"}
 
     async with (
-        StdioMCPClient(SERVER_MODULES["news"], "news") as news_client,
-        StdioMCPClient(SERVER_MODULES["pdf"], "pdf") as pdf_client,
-        StdioMCPClient(SERVER_MODULES["price"], "price") as price_client,
+        StdioMCPClient(SERVER_MODULES["news"], "news", env=server_env) as news_client,
+        StdioMCPClient(SERVER_MODULES["pdf"], "pdf", env=server_env) as pdf_client,
+        StdioMCPClient(SERVER_MODULES["price"], "price", env=server_env) as price_client,
     ):
         news_task = _timed(
             "news.search",
@@ -79,7 +118,7 @@ async def run_daily_brief(user_query: str) -> BriefResult:
 
     articles: list[dict[str, Any]] = []
     if news_hits:
-        async with StdioMCPClient(SERVER_MODULES["news"], "news") as news_client:
+        async with StdioMCPClient(SERVER_MODULES["news"], "news", env=server_env) as news_client:
             article_results = await asyncio.gather(
                 *[
                     _timed(
@@ -92,13 +131,46 @@ async def run_daily_brief(user_query: str) -> BriefResult:
             )
             articles = [item for item in article_results if not isinstance(item, Exception)]
 
-    citations = unique_citations(articles, resources, price_trends)
+    risk_assessment: dict[str, Any] = {"risks": [], "citations": [], "trace": []}
+    async with StdioMCPClient(SERVER_MODULES["risk"], "risk", env=server_env) as risk_client:
+        risk_result = await _timed(
+            "risk.assess_risks",
+            risk_client.call_tool(
+                "assess_risks",
+                {
+                    "topic": intent.topic,
+                    "news": news_hits,
+                    "resources": resources,
+                    "prices": price_trends,
+                },
+            ),
+            report["tools"],
+        )
+        if isinstance(risk_result, Exception):
+            tool_errors.append(f"risk tool failed: {risk_result}")
+        else:
+            risk_assessment = risk_result
+
+    news_citations = [
+        {
+            "id": hit["citation_id"],
+            "title": hit["title"],
+            "url": hit["url"],
+            "source": hit["source"],
+            "published_at": hit.get("published_at"),
+            "page": None,
+            "fetched_at": hit.get("fetched_at"),
+        }
+        for hit in news_hits[: plan.article_limit]
+    ]
+    citations = unique_citations(news_citations, resources, price_trends, risk_assessment)
     markdown = compose_markdown(
         topic=intent.topic,
         news_hits=news_hits,
         articles=articles,
         resources=resources,
         price_trends=price_trends,
+        risk_assessment=risk_assessment,
         citations=citations,
         degraded_notes=tool_errors,
     )
@@ -106,6 +178,8 @@ async def run_daily_brief(user_query: str) -> BriefResult:
     report["total_latency_ms"] = round((time.perf_counter() - started) * 1000, 2)
     report["citation_count"] = len(citations)
     report["warning_count"] = len(warnings)
+    report["source_breakdown"] = source_breakdown(citations)
+    report["crawl_trace"] = crawl_trace(news_hits, articles, resources, price_trends, risk_assessment)
 
     return BriefResult(
         topic=intent.topic,
@@ -114,6 +188,7 @@ async def run_daily_brief(user_query: str) -> BriefResult:
         resources=resources,
         prices=price_trends,
         citations=citations,
+        risks=risk_assessment,
         warnings=warnings,
         run_report=report,
     )
@@ -129,8 +204,76 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def source_breakdown(citations: list[dict[str, Any]]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for citation in citations:
+        source = str(citation.get("source", "unknown"))
+        bucket = "live" if source.startswith("live:") else "fallback"
+        counts[bucket] = counts.get(bucket, 0) + 1
+        if "rss" in source or "html" in source or "company-page" in source:
+            key = "news"
+        elif "pdf" in source or "technical-report" in source:
+            key = "pdf"
+        elif "price" in source or "yahoo" in source:
+            key = "price"
+        else:
+            key = "other"
+        counts[key] = counts.get(key, 0) + 1
+    return counts
+
+
+def crawl_trace(
+    news_hits: list[dict[str, Any]],
+    articles: list[dict[str, Any]],
+    resources: dict[str, Any],
+    price_trends: list[dict[str, Any]],
+    risk_assessment: dict[str, Any],
+) -> list[dict[str, Any]]:
+    trace: list[dict[str, Any]] = []
+    article_by_url = {article.get("url"): article for article in articles}
+    for hit in news_hits[:5]:
+        matching_article = article_by_url.get(hit.get("url"), {})
+        published_at = matching_article.get("published_at") or hit.get("published_at")
+        trace.append(
+            {
+                "tool": "mining-news-mcp.search",
+                "source": hit.get("source"),
+                "url": hit.get("url"),
+                "title": hit.get("title"),
+                "published_at": published_at,
+                "fetched_at": hit.get("fetched_at"),
+                "status": "ok" if str(hit.get("source", "")).startswith("live:") else "fallback",
+            }
+        )
+    for article in articles:
+        matching_hit = next((hit for hit in news_hits if hit.get("url") == article.get("url")), {})
+        trace.append(
+            {
+                "tool": "mining-news-mcp.fetch_article",
+                "source": article.get("source"),
+                "url": article.get("url"),
+                "title": article.get("title"),
+                "published_at": article.get("published_at") or matching_hit.get("published_at"),
+                "fetched_at": article.get("fetched_at")
+                or (article.get("citations") or [{}])[0].get("fetched_at"),
+                "status": "ok"
+                if str(article.get("source", "")).startswith("live:")
+                else "fallback",
+            }
+        )
+    trace.extend(resources.get("trace", []))
+    for trend in price_trends:
+        trace.extend(trend.get("trace", []))
+    trace.extend(risk_assessment.get("trace", []))
+    return sorted(trace, key=lambda item: item.get("fetched_at") or "")
+
+
 def main() -> None:
     args = parse_args()
+    if args.offline:
+        import os
+
+        os.environ["MINING_AGENT_OFFLINE"] = "true"
     result = asyncio.run(run_daily_brief(args.query))
     print(result.markdown)
 
@@ -143,9 +286,21 @@ def main() -> None:
             "news": result.news,
             "resources": result.resources,
             "prices": result.prices,
+            "risks": result.risks,
             "citations": result.citations,
             "warnings": result.warnings,
             "run_report": result.run_report,
+            "evidence_summary": {
+                "news_count": len(result.news),
+                "resource_count": len(result.resources.get("resources", [])),
+                "price_series_count": len(result.prices),
+                "live_source_count": sum(
+                    1
+                    for citation in result.citations
+                    if str(citation.get("source", "")).startswith("live:")
+                ),
+                "source_breakdown": result.run_report.get("source_breakdown", {}),
+            },
         }
         Path(args.json_output).parent.mkdir(parents=True, exist_ok=True)
         Path(args.json_output).write_text(
@@ -160,4 +315,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

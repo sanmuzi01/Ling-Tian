@@ -13,4 +13,7 @@ run_report.json
 examples/*_generated.md
 examples/*_generated.json
 .env
-
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.npm-cache/

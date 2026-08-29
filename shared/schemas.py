@@ -22,6 +22,7 @@ class Citation:
     source: str
     published_at: str | None = None
     page: int | None = None
+    fetched_at: str | None = None
 
 
 @dataclass(frozen=True)
@@ -33,6 +34,7 @@ class NewsHit:
     snippet: str
     score: float
     citation_id: str
+    fetched_at: str | None = None
 
 
 @dataclass(frozen=True)
@@ -44,6 +46,7 @@ class Article:
     text: str
     authors: list[str]
     citations: list[Citation]
+    fetched_at: str | None = None
 
 
 @dataclass(frozen=True)
@@ -100,6 +103,6 @@ class BriefResult:
     resources: dict[str, Any]
     prices: list[dict[str, Any]]
     citations: list[dict[str, Any]]
+    risks: dict[str, Any] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
     run_report: dict[str, Any] = field(default_factory=dict)
-

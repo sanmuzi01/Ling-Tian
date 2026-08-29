@@ -3,7 +3,7 @@
     "currency": "USD",
     "unit": "t LCE",
     "source": {
-      "id": "S5",
+      "id": "S31",
       "title": "Lithium carbonate indicative price series",
       "url": "https://example.com/prices/lithium-carbonate",
       "source": "fixture:commodity-price",
@@ -23,7 +23,7 @@
     "currency": "USD",
     "unit": "t",
     "source": {
-      "id": "S6",
+      "id": "S32",
       "title": "LME copper indicative settlement series",
       "url": "https://example.com/prices/lme-copper",
       "source": "fixture:lme-price",
@@ -43,7 +43,7 @@
     "currency": "USD",
     "unit": "t",
     "source": {
-      "id": "S7",
+      "id": "S33",
       "title": "LME nickel indicative settlement series",
       "url": "https://example.com/prices/lme-nickel",
       "source": "fixture:lme-price",
@@ -60,4 +60,3 @@
     ]
   }
 }
-

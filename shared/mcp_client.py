@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 import sys
 from dataclasses import dataclass, field
 from typing import Any
@@ -11,11 +12,18 @@ from typing import Any
 class StdioMCPClient:
     module: str
     name: str
+    env: dict[str, str] | None = None
     proc: asyncio.subprocess.Process | None = None
     next_id: int = 1
     _lock: asyncio.Lock = field(default_factory=asyncio.Lock)
 
     async def __aenter__(self) -> "StdioMCPClient":
+        child_env = {
+            **os.environ,
+            "PYTHONUTF8": "1",
+            "PYTHONIOENCODING": "utf-8",
+            **(self.env or {}),
+        }
         self.proc = await asyncio.create_subprocess_exec(
             sys.executable,
             "-m",
@@ -23,6 +31,7 @@ class StdioMCPClient:
             stdin=asyncio.subprocess.PIPE,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
+            env=child_env,
         )
         await self.request("initialize", {"clientInfo": {"name": "daily-brief-agent"}})
         await self.notify("notifications/initialized", {})

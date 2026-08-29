@@ -14,7 +14,11 @@
       "command": "python",
       "args": ["-m", "servers.lme_price_mcp.server"],
       "cwd": "."
+    },
+    "mining-risk-mcp": {
+      "command": "python",
+      "args": ["-m", "servers.mining_risk_mcp.server"],
+      "cwd": "."
     }
   }
 }
-
