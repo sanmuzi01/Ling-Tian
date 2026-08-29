@@ -1,3 +1,5 @@
+![Uploading image.png…]()
+
 # Mining Rights Daily Agent
 
 一个基于 MCP (Model Context Protocol) 的“矿权日报”Agent。项目面向面试题要求实现：多个 MCP server 提供独立数据能力，一个 Agent client 负责规划、编排、校验和生成 Markdown 简报，并提供 Vue 3 前端用于演示执行过程。
