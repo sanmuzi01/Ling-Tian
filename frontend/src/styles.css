@@ -25,6 +25,7 @@ body {
 }
 
 button,
+input,
 textarea {
   font: inherit;
 }
@@ -88,16 +89,72 @@ h1 {
   gap: 10px;
 }
 
+input,
 textarea {
   width: 100%;
-  min-height: 54px;
-  resize: vertical;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 10px 12px;
   color: var(--ink);
   background: #fbfcfe;
   line-height: 1.45;
+}
+
+textarea {
+  min-height: 54px;
+  resize: vertical;
+}
+
+.query-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.llm-config {
+  display: grid;
+  grid-template-columns: 130px minmax(150px, 0.9fr) minmax(220px, 1.2fr) minmax(180px, 1fr);
+  gap: 8px;
+  align-items: end;
+}
+
+.llm-config label {
+  min-width: 0;
+}
+
+.llm-config label > span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.llm-config input {
+  height: 38px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbfcfe;
+}
+
+.switch-row input {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+}
+
+.switch-row span {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
 }
 
 button {
@@ -122,7 +179,7 @@ button:disabled {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
   margin-top: 8px;
 }
@@ -646,6 +703,14 @@ th {
 }
 
 @media (max-width: 1160px) {
+  .command-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .llm-config {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .workspace {
     grid-template-columns: 280px minmax(0, 1fr);
   }
@@ -658,6 +723,7 @@ th {
 @media (max-width: 760px) {
   .command-bar,
   .command-input,
+  .llm-config,
   .workspace,
   .price-grid {
     grid-template-columns: 1fr;

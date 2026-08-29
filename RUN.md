@@ -8,6 +8,28 @@ From the project root:
 python -m agent.daily_brief_agent "给我生成一份关于 Pilbara 锂矿的今日简报"
 ```
 
+Optional: enable LLM composition before running:
+
+```bash
+set OPENAI_API_KEY=your_api_key_here
+set MINING_AGENT_LLM_MODEL=gpt-5.6-luna
+set MINING_AGENT_LLM_BASE_URL=https://api.openai.com/v1
+python -m agent.daily_brief_agent "给我生成一份关于 Pilbara 锂矿的今日简报"
+```
+
+Without `OPENAI_API_KEY`, the Agent automatically falls back to deterministic
+template composition and still runs end-to-end.
+
+You can also pass the model configuration directly:
+
+```bash
+python -m agent.daily_brief_agent "给我生成一份关于 Pilbara 锂矿的今日简报" ^
+  --llm-enabled ^
+  --llm-model deepseek-chat ^
+  --llm-base-url https://api.deepseek.com/v1 ^
+  --llm-api-key your_api_key_here
+```
+
 Save outputs:
 
 ```bash
@@ -45,6 +67,15 @@ dependencies.
 docker compose up --build
 ```
 
+To enable the optional LLM layer with Docker Compose:
+
+```bash
+set OPENAI_API_KEY=your_api_key_here
+set MINING_AGENT_LLM_MODEL=gpt-5.6-luna
+set MINING_AGENT_LLM_BASE_URL=https://api.openai.com/v1
+docker compose up --build
+```
+
 The generated brief is written to:
 
 ```text
@@ -77,7 +108,8 @@ http://127.0.0.1:5173
 Click `生成简报` to execute the Agent through the local `/api/run` endpoint. The
 page shows step-by-step execution feedback, the 4 MCP server + 1 Agent client
 delivery check, crawl trace rows with fetch time and publish time, latency,
-citation count, warning count, Markdown output, and structured JSON.
+citation count, warning count, LLM model configuration, Markdown output, and
+structured JSON.
 
 If you prefer a built static frontend:
 

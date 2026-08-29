@@ -54,7 +54,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             body = json.loads(self.rfile.read(length).decode("utf-8") or "{}")
             query = body.get("query") or "给我生成一份关于 Pilbara 锂矿的今日简报"
-            result = asyncio.run(run_daily_brief(query))
+            llm_config = body.get("llm") if isinstance(body.get("llm"), dict) else None
+            result = asyncio.run(run_daily_brief(query, llm_overrides=llm_config))
             payload = {
                 "topic": result.topic,
                 "markdown": result.markdown,

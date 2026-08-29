@@ -15,6 +15,7 @@
 
 - **4 个 MCP server + 1 个 Agent client**：超过题目“至少 3 个 MCP server”的要求。
 - **真实数据优先**：默认 live-first，优先爬取公开新闻、PDF 报告和行情接口，失败时才进入 fixture fallback。
+- **可选大模型生成**：前端或环境变量可填写模型名、Base URL、API Key；无 key 时自动使用模板生成，保证 5 分钟可跑。
 - **运行轨迹监测**：每个爬取页面 / 接口调用都记录 `fetched_at`，并尽量解析源内容的 `published_at`。
 - **可验证引用**：Markdown 简报中的事实性内容带来源编号，结构化 JSON 保留完整引用链。
 - **Vue 3 演示页面**：支持中文页面、执行反馈、MCP 工具耗时、交付核验、运行轨迹、价格趋势折线图、Markdown/JSON 查看。
@@ -22,18 +23,26 @@
 
 ## Deliverables
 
-| 类型 | 路径 | 说明 |
-|---|---|---|
-| Agent client | `agent/daily_brief_agent.py` | 主流程编排、MCP 调用、引用校验、Markdown 输出 |
-| News MCP | `servers/mining_news_mcp/` | `search(query, days)`、`fetch_article(url)` |
-| PDF MCP | `servers/mineral_pdf_mcp/` | `extract_resources(pdf_url)` |
-| Price MCP | `servers/lme_price_mcp/` | `get_price(commodity, date)`、`get_trend(commodity, days)` |
-| Risk MCP | `servers/mining_risk_mcp/` | `assess_risks(topic, news, resources, prices)` |
-| MCP 配置 | `mcp-config.json` | 可接入 Claude Desktop / Cursor |
-| 运行说明 | `RUN.md` | 5 分钟内跑起来，含 `docker compose up --build` |
-| 前端 | `frontend/` | Vue 3 + Vite 演示控制台 |
-| 示例输出 | `examples/` | Markdown 和 JSON 样例 |
-| 测试 | `tests/` | MCP、Agent、数据解析测试 |
+- Agent client：`agent/daily_brief_agent.py`
+  主流程编排、MCP 调用、引用校验、Markdown 输出。
+- News MCP：`servers/mining_news_mcp/`
+  提供 `search(query, days)` 和 `fetch_article(url)`。
+- PDF MCP：`servers/mineral_pdf_mcp/`
+  提供 `extract_resources(pdf_url)`。
+- Price MCP：`servers/lme_price_mcp/`
+  提供 `get_price(commodity, date)` 和 `get_trend(commodity, days)`。
+- Risk MCP：`servers/mining_risk_mcp/`
+  提供 `assess_risks(topic, news, resources, prices)`。
+- MCP 配置：`mcp-config.json`
+  可接入 Claude Desktop / Cursor。
+- 运行说明：`RUN.md`
+  5 分钟内跑起来，含 `docker compose up --build`。
+- 前端：`frontend/`
+  Vue 3 + Vite 演示控制台。
+- 示例输出：`examples/`
+  Markdown 和 JSON 样例。
+- 测试：`tests/`
+  MCP、Agent、数据解析测试。
 
 ## Architecture
 
@@ -51,9 +60,13 @@ Agent Client: agent.daily_brief_agent
    |
    v
 Verifier -> Composer -> Markdown Brief + Structured JSON
+              |
+              |-- optional OpenAI Responses API
 ```
 
 核心设计思路是把数据能力隔离在 MCP server 后面，Agent client 只做意图解析、并发编排、降级处理、引用校验和报告生成。这样每个数据源都可以单独替换、单独测试，也方便接入 Claude Desktop 或 Cursor。
+
+大模型调用是可选增强层：Agent 会先生成一份确定性的 Markdown 草稿，再在配置了 API Key 时调用 OpenAI-compatible 接口进行最终中文报告生成。OpenAI 模型优先使用 Responses API，其他兼容模型默认使用 Chat Completions API。LLM 输出必须保留标题结构和引用编号；如果 API 不可用、未配置 key 或输出结构不合格，系统会自动回退到模板草稿。
 
 ## MCP Servers
 
@@ -167,6 +180,8 @@ http://127.0.0.1:8765
 - 新闻证据流
 - PDF 资源量抽取结果
 - 价格趋势折线图
+- LLM 模式状态
+- 自定义模型名、Base URL、API Key
 - Markdown 简报和结构化 JSON
 
 ## Connect to Claude Desktop / Cursor
@@ -211,6 +226,10 @@ MINING_AGENT_OFFLINE=false
 MINING_AGENT_STRICT_CITATIONS=true
 MINING_AGENT_TIMEOUT_SECONDS=30
 MINING_AGENT_PDF_URL=https://cdn.financialreports.eu/financialreports/media/filings/65576/2026/RNS/65576_rns_2026-08-23_c3d18a66-1f27-477f-92de-45222c0b4f78.pdf
+MINING_AGENT_LLM_ENABLED=true
+MINING_AGENT_LLM_MODEL=gpt-5.6-luna
+MINING_AGENT_LLM_BASE_URL=https://api.openai.com/v1
+OPENAI_API_KEY=
 ```
 
 常用环境变量：
@@ -218,6 +237,10 @@ MINING_AGENT_PDF_URL=https://cdn.financialreports.eu/financialreports/media/fili
 - `MINING_AGENT_OFFLINE=false`：默认 live-first，优先真实爬取。
 - `MINING_AGENT_OFFLINE=true`：强制使用 fixture，适合无网络演示或 CI。
 - `MINING_AGENT_PDF_URL=...`：替换技术报告 PDF 地址。
+- `MINING_AGENT_LLM_ENABLED=true`：允许在有 API key 时调用大模型。
+- `MINING_AGENT_LLM_MODEL=...`：指定模型名，例如 `gpt-5.6-luna`、`deepseek-chat`、`qwen-plus`。
+- `MINING_AGENT_LLM_BASE_URL=...`：指定 OpenAI-compatible API Base URL。
+- `OPENAI_API_KEY=...` 或 `MINING_AGENT_LLM_API_KEY=...`：配置后启用大模型生成最终简报。
 
 ## Data Strategy
 
@@ -228,6 +251,7 @@ MINING_AGENT_PDF_URL=https://cdn.financialreports.eu/financialreports/media/fili
 - PDF：下载真实技术报告 PDF，扫描资源量相关页面并解析 Indicated / Inferred。
 - 行情：调用公开行情接口获取近 7 日时间序列。
 - 风险：用独立 MCP server 基于前面证据生成结构化风险评分。
+- 大模型：如配置 API Key，用 OpenAI-compatible 接口基于结构化证据和草稿生成最终 Markdown。
 
 如果实时源不可访问、超时或被目标站点拦截，系统会使用 fixture fallback，并在运行报告、页面 badge、数据完整性说明中暴露，不会伪装成实时数据。
 
@@ -253,6 +277,20 @@ JSON 输出包含：
 - `warnings`
 - `run_report`
 - `evidence_summary`
+
+`run_report.llm` 会标记最终报告是否调用大模型：
+
+```json
+{
+  "enabled": true,
+  "provider": "openai-compatible",
+  "model": "gpt-5.6-luna",
+  "base_url": "https://api.openai.com/v1",
+  "used": false,
+  "mode": "template",
+  "reason": "LLM API key is not configured"
+}
+```
 
 其中 `run_report.crawl_trace` 会记录每个爬取页面或接口调用：
 

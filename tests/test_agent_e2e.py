@@ -11,6 +11,7 @@ from shared.citations import cited_ids
 class AgentE2ETests(unittest.TestCase):
     def test_agent_generates_cited_brief(self) -> None:
         os.environ["MINING_AGENT_OFFLINE"] = "true"
+        os.environ["MINING_AGENT_LLM_ENABLED"] = "false"
         result = asyncio.run(run_daily_brief("给我生成一份关于 Pilbara 锂矿的今日简报"))
         self.assertIn("Pilbara lithium", result.topic)
         self.assertIn("## 2. 资产动态与新闻证据", result.markdown)
@@ -30,6 +31,8 @@ class AgentE2ETests(unittest.TestCase):
             "agent.daily_brief_agent",
         )
         self.assertIn("risk_score", result.risks)
+        self.assertIn("llm", result.run_report)
+        self.assertFalse(result.run_report["llm"]["used"])
 
 
 if __name__ == "__main__":

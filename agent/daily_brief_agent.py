@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from agent.composer import compose_markdown
+from agent.llm_composer import maybe_compose_with_llm, settings_with_llm_overrides
 from agent.planner import build_plan, parse_intent
 from agent.verifier import unique_citations, verify_evidence
 from shared.config import load_settings
@@ -38,10 +39,10 @@ async def _timed(label: str, coro: Any, report: dict[str, Any]) -> Any:
         return exc
 
 
-async def run_daily_brief(user_query: str) -> BriefResult:
+async def run_daily_brief(user_query: str, llm_overrides: dict[str, Any] | None = None) -> BriefResult:
     started = time.perf_counter()
     intent = parse_intent(user_query)
-    settings = load_settings()
+    settings = settings_with_llm_overrides(load_settings(), llm_overrides)
     plan = build_plan(intent)
     report: dict[str, Any] = {
         "tools": {},
@@ -164,7 +165,7 @@ async def run_daily_brief(user_query: str) -> BriefResult:
         for hit in news_hits[: plan.article_limit]
     ]
     citations = unique_citations(news_citations, resources, price_trends, risk_assessment)
-    markdown = compose_markdown(
+    draft_markdown = compose_markdown(
         topic=intent.topic,
         news_hits=news_hits,
         articles=articles,
@@ -174,12 +175,27 @@ async def run_daily_brief(user_query: str) -> BriefResult:
         citations=citations,
         degraded_notes=tool_errors,
     )
+    markdown, llm_status = maybe_compose_with_llm(
+        draft_markdown=draft_markdown,
+        evidence={
+            "topic": intent.topic,
+            "news": news_hits[: plan.article_limit],
+            "articles": articles,
+            "resources": resources,
+            "prices": price_trends,
+            "risks": risk_assessment,
+            "citations": citations,
+            "warnings": tool_errors,
+        },
+        settings=settings,
+    )
     warnings = verify_evidence(markdown, citations, resources, tool_errors)
     report["total_latency_ms"] = round((time.perf_counter() - started) * 1000, 2)
     report["citation_count"] = len(citations)
     report["warning_count"] = len(warnings)
     report["source_breakdown"] = source_breakdown(citations)
     report["crawl_trace"] = crawl_trace(news_hits, articles, resources, price_trends, risk_assessment)
+    report["llm"] = llm_status
 
     return BriefResult(
         topic=intent.topic,
@@ -201,6 +217,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", help="Write Markdown brief to this path.")
     parser.add_argument("--json-output", help="Write structured JSON result to this path.")
     parser.add_argument("--run-report", default="run_report.json", help="Write run telemetry JSON.")
+    parser.add_argument("--llm-enabled", action="store_true", help="Enable optional LLM composition.")
+    parser.add_argument("--llm-disabled", action="store_true", help="Disable optional LLM composition.")
+    parser.add_argument("--llm-model", help="OpenAI-compatible model name.")
+    parser.add_argument("--llm-base-url", help="OpenAI-compatible API base URL, for example https://api.openai.com/v1.")
+    parser.add_argument("--llm-api-key", help="API key for the selected OpenAI-compatible endpoint.")
     return parser.parse_args()
 
 
@@ -274,7 +295,17 @@ def main() -> None:
         import os
 
         os.environ["MINING_AGENT_OFFLINE"] = "true"
-    result = asyncio.run(run_daily_brief(args.query))
+    llm_overrides = {
+        key: value
+        for key, value in {
+            "enabled": False if args.llm_disabled else True if args.llm_enabled else None,
+            "model": args.llm_model,
+            "base_url": args.llm_base_url,
+            "api_key": args.llm_api_key,
+        }.items()
+        if value is not None
+    }
+    result = asyncio.run(run_daily_brief(args.query, llm_overrides=llm_overrides or None))
     print(result.markdown)
 
     if args.output:

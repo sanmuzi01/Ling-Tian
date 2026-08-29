@@ -61,6 +61,24 @@ function trendLabel(value) {
   return value === "up" ? "上涨" : value === "down" ? "下跌" : "持平";
 }
 
+function inferBaseUrl(model) {
+  const normalized = String(model || "").trim().toLowerCase();
+  if (normalized.startsWith("deepseek")) return "https://api.deepseek.com/v1";
+  if (normalized.startsWith("qwen") || normalized.startsWith("qwq")) {
+    return "https://dashscope.aliyuncs.com/compatible-mode/v1";
+  }
+  if (normalized.startsWith("moonshot") || normalized.startsWith("kimi")) {
+    return "https://api.moonshot.cn/v1";
+  }
+  if (normalized.startsWith("glm") || normalized.startsWith("chatglm")) {
+    return "https://open.bigmodel.cn/api/paas/v4";
+  }
+  if (normalized.startsWith("llama") || normalized.startsWith("mistral")) {
+    return "http://127.0.0.1:11434/v1";
+  }
+  return "https://api.openai.com/v1";
+}
+
 function drawSparkline(points) {
   const values = points.map((point) => Number(point.price)).filter((value) => Number.isFinite(value));
   if (values.length < 2) {
@@ -172,6 +190,10 @@ export default defineComponent({
     const activeTab = ref("brief");
     const result = ref(null);
     const error = ref("");
+    const llmEnabled = ref(true);
+    const llmModel = ref("gpt-5.6-luna");
+    const llmBaseUrl = ref(inferBaseUrl(llmModel.value));
+    const llmApiKey = ref("");
 
     const metrics = computed(() => {
       const report = result.value?.run_report;
@@ -181,6 +203,8 @@ export default defineComponent({
         citations: report ? String(report.citation_count) : "--",
         liveSources: summary ? String(summary.live_source_count) : "--",
         warnings: report ? String(report.warning_count) : "--",
+        llm: report?.llm?.used ? "OpenAI" : report?.llm ? "模板兜底" : "--",
+        llmReason: report?.llm?.reason ?? "可选模型生成",
       };
     });
 
@@ -208,7 +232,15 @@ export default defineComponent({
         const response = await fetch("http://127.0.0.1:8765/api/run", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: query.value.trim() || defaultQuery }),
+          body: JSON.stringify({
+            query: query.value.trim() || defaultQuery,
+            llm: {
+              enabled: llmEnabled.value,
+              model: llmModel.value.trim(),
+              baseUrl: llmBaseUrl.value.trim() || inferBaseUrl(llmModel.value),
+              apiKey: llmApiKey.value.trim(),
+            },
+          }),
         });
         const payload = await response.json();
         if (!response.ok) {
@@ -234,13 +266,60 @@ export default defineComponent({
             ]),
           ]),
           h("div", { class: "command-input" }, [
-            h("textarea", {
-              value: query.value,
-              rows: 2,
-              onInput: (event) => {
-                query.value = event.target.value;
-              },
-            }),
+            h("div", { class: "query-stack" }, [
+              h("textarea", {
+                value: query.value,
+                rows: 2,
+                onInput: (event) => {
+                  query.value = event.target.value;
+                },
+              }),
+              h("div", { class: "llm-config" }, [
+                h("label", { class: "switch-row" }, [
+                  h("input", {
+                    type: "checkbox",
+                    checked: llmEnabled.value,
+                    onChange: (event) => {
+                      llmEnabled.value = event.target.checked;
+                    },
+                  }),
+                  h("span", "启用大模型"),
+                ]),
+                h("label", [
+                  h("span", "模型名"),
+                  h("input", {
+                    value: llmModel.value,
+                    placeholder: "gpt-5.6-luna / deepseek-chat / qwen-plus",
+                    onInput: (event) => {
+                      llmModel.value = event.target.value;
+                      llmBaseUrl.value = inferBaseUrl(event.target.value);
+                    },
+                  }),
+                ]),
+                h("label", [
+                  h("span", "Base URL"),
+                  h("input", {
+                    value: llmBaseUrl.value,
+                    placeholder: "https://api.openai.com/v1",
+                    onInput: (event) => {
+                      llmBaseUrl.value = event.target.value;
+                    },
+                  }),
+                ]),
+                h("label", [
+                  h("span", "API Key"),
+                  h("input", {
+                    type: "password",
+                    value: llmApiKey.value,
+                    placeholder: "只发送到本地后端",
+                    autocomplete: "off",
+                    onInput: (event) => {
+                      llmApiKey.value = event.target.value;
+                    },
+                  }),
+                ]),
+              ]),
+            ]),
             h(
               "button",
               { type: "button", disabled: running.value, onClick: runAgent },
@@ -254,6 +333,7 @@ export default defineComponent({
           metricCard("引用数", metrics.value.citations, "进入简报的来源"),
           metricCard("实时来源", metrics.value.liveSources, "爬虫/接口返回"),
           metricCard("质量提示", metrics.value.warnings, "置信度与降级检查"),
+          metricCard("LLM 模式", metrics.value.llm, metrics.value.llmReason),
         ]),
 
         h("section", { class: "workspace" }, [
